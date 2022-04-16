@@ -37,7 +37,7 @@ services:
       depends_on: 
         - node
       restart: on-failure
-      ports:
+      ports: 
         - "80:80"
         - "443:443"
       networks:

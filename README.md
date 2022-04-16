@@ -25,7 +25,7 @@ Note that if you're NOT using WSL at all with Docker on Windows then you can clo
 
       `$env:APP_ENV="production"`
 
-      `$env:DOCKER_ACCT="codewithdan"`
+      `$env:DOCKER_ACCT="mukherjeerajdeep"`
 
 1. Run `npm install` to install the Node.js dependencies for the project (when running containers in development mode since a volume is defined docker-compose.yml file)
 2. Run `docker-compose build`
