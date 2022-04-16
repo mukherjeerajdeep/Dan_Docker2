@@ -2,7 +2,7 @@
     # 2. Set APP_ENV environment variable by running the following command in your commnand window (see the notes below if on Windows). 
 
     #    export APP_ENV=development or export APP_ENV=production
-    #    export DOCKER_ACCT=codewithdan
+    #    export DOCKER_ACCT=mukherjeerajdeep
 
     #    NOTE: If you're on Windows use one of the following commands to create the environment variables. 
     #    Use 'codewithdan' for the account if you want to run in Kubernetes (see the readme). Otherwise, you can substitute your own 
@@ -12,7 +12,7 @@
     #    For Windows Powershell use `$env:APP_ENV = "value"`.
 
     #    $env:APP_ENV="development" or $env:APP_ENV="production"
-    #    $env:DOCKER_ACCT="codewithdan"
+    #    $env:DOCKER_ACCT="mukherjeerajdeep"
     
     # 3. Remove "node" service `volume` (below) if doing a production build
     # 4. Run docker-compose build
@@ -51,8 +51,8 @@ services:
         dockerfile: .docker/node-codewithdan.${APP_ENV}.dockerfile
       ports:
       - "8080"
-      volumes:
-        - .:/var/www/codewithdan
+      # volumes:
+      #   - .:/var/www/codewithdan
       working_dir: /var/www/codewithdan
       env_file:
         - ./.docker/env/app.${APP_ENV}.env

@@ -15,7 +15,7 @@ Note that if you're NOT using WSL at all with Docker on Windows then you can clo
 ## Instructions
 
 1. Install Docker Desktop for Mac or Docker Desktop for Windows from https://docker.com and the lastest LTS version of Node.js from https://nodejs.org.
-1. Set the environment variables in your command window.
+2. Set the environment variables in your command window.
 
       `export APP_ENV=development`
       
@@ -28,10 +28,28 @@ Note that if you're NOT using WSL at all with Docker on Windows then you can clo
       `$env:DOCKER_ACCT="codewithdan"`
 
 1. Run `npm install` to install the Node.js dependencies for the project (when running containers in development mode since a volume is defined docker-compose.yml file)
-1. Run `docker-compose build`
-1. Run `docker-compose up`
-1. Visit http://localhost in a browser
-1. Live long and prosper
+2. Run `docker-compose build`
+3. Run `docker-compose up`
+4. Visit http://localhost in a browser
+5. Live long and prosper
+
+## My note for more complex dockerfile
+
+1. Here we used a complex dockerfile for the demo example 
+
+```yaml
+version: "3.7"
+ 
+services:
+    nginx:
+      container_name: nginx
+      image: ${DOCKER_ACCT}/nginx # Here the enviromenta variable set will come into affect. `DOCKER_ACCT=codewithdan`
+      build: 
+        context: .
+        dockerfile: .docker/nginx.${APP_ENV}.dockerfile # Same here `APP_ENV="production"`
+
+```
+
 
 ### Note for Docker Toolbox Users
 
